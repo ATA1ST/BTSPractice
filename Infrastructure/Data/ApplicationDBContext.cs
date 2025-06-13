@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Core.Entities;
+using Core.Models;
 using Microsoft.Extensions.Configuration;
+using Core.Interfaces;
 
 
 namespace Infrastructure.Data
 {
-    public class ApplicationDBContext : DbContext
+    public class ApplicationDBContext : DbContext, IApplicationDBContext
     {
         protected readonly IConfiguration Configuration;
 

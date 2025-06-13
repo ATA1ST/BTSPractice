@@ -1039,22 +1039,12 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Application/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "dependencies": {
-          "Core": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Application.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Application.dll": {}
-        }
-      },
       "Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "9.0.6"
+        },
         "compile": {
           "bin/placeholder/Core.dll": {}
         },
@@ -3119,11 +3109,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Application/1.0.0": {
-      "type": "project",
-      "path": "../Application/Application.csproj",
-      "msbuildProject": "../Application/Application.csproj"
-    },
     "Core/1.0.0": {
       "type": "project",
       "path": "../Core/Core.csproj",
@@ -3132,7 +3117,6 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "Application >= 1.0.0",
       "Core >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 9.0.6",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.6",
@@ -3172,9 +3156,6 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\Application\\Application.csproj"
-            },
             "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\Core\\Core.csproj": {
               "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\Core\\Core.csproj"
             }

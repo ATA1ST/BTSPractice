@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "iKDPcwS4kCU=",
+  "dgSpecHash": "dKzu/3aiBwc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+  "projectFilePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ernar\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Ernar\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\Ernar\\.nuget\\packages\\mediatr\\12.5.0\\mediatr.12.5.0.nupkg.sha512",
+    "C:\\Users\\Ernar\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\Ernar\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
     "C:\\Users\\Ernar\\.nuget\\packages\\microsoft.aspnet.webapi.client\\4.0.20710\\microsoft.aspnet.webapi.client.4.0.20710.nupkg.sha512",
     "C:\\Users\\Ernar\\.nuget\\packages\\microsoft.aspnet.webapi.core\\4.0.20710\\microsoft.aspnet.webapi.core.4.0.20710.nupkg.sha512",
     "C:\\Users\\Ernar\\.nuget\\packages\\microsoft.aspnet.webapi.webhost\\4.0.20710\\microsoft.aspnet.webapi.webhost.4.0.20710.nupkg.sha512",
@@ -84,12 +87,24 @@
   ],
   "logs": [
     {
+      "code": "NU1608",
+      "level": "Warning",
+      "message": "Версия обнаруженного пакета нарушает ограничение зависимости: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 требуется MediatR (>= 11.0.0 && < 12.0.0), но в результате разрешения получена версия MediatR 12.5.0.",
+      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
+      "libraryId": "MediatR",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
+    {
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Microsoft.AspNet.WebApi.Client 4.0.20710\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net9.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "libraryId": "Microsoft.AspNet.WebApi.Client",
       "targetGraphs": [
         "net9.0"
@@ -99,9 +114,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Microsoft.AspNet.WebApi.Core 4.0.20710\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net9.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "libraryId": "Microsoft.AspNet.WebApi.Core",
       "targetGraphs": [
         "net9.0"
@@ -111,9 +126,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Microsoft.AspNet.WebApi.WebHost 4.0.20710\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net9.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "libraryId": "Microsoft.AspNet.WebApi.WebHost",
       "targetGraphs": [
         "net9.0"
@@ -123,9 +138,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Microsoft.Net.Http 2.0.20710\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net9.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "libraryId": "Microsoft.Net.Http",
       "targetGraphs": [
         "net9.0"
@@ -135,9 +150,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Microsoft.Web.Infrastructure 1.0.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net9.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "libraryId": "Microsoft.Web.Infrastructure",
       "targetGraphs": [
         "net9.0"
@@ -147,9 +162,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Newtonsoft.Json 7.0.1\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net9.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "libraryId": "Newtonsoft.Json",
       "targetGraphs": [
         "net9.0"
@@ -159,9 +174,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Swashbuckle.Core 5.6.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net9.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "libraryId": "Swashbuckle.Core",
       "targetGraphs": [
         "net9.0"
@@ -171,9 +186,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"WebActivatorEx 2.0.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net9.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "projectPath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebAPi\\WebApi.csproj",
+      "filePath": "C:\\Users\\Ernar\\Documents\\dotnet\\MySolution\\WebApi\\WebApi.csproj",
       "libraryId": "WebActivatorEx",
       "targetGraphs": [
         "net9.0"

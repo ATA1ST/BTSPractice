@@ -7,6 +7,9 @@ using Infrastructure.Data;
 using Core.Interfaces;
 using Infrastructure.Repositories;
 using Application.Services;
+using Application.WorkTasks.Commands.CreateWorkTask;
+using Application.WorkTasks.Queries.GetWorkTaskById;
+using Core.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +22,10 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssembly(typeof(CreateWorkTaskCommand).Assembly));
+
+builder.Services.AddScoped<IApplicationDBContext, ApplicationDBContext>();
 
 
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();

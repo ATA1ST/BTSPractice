@@ -13,3 +13,6 @@ C:\Users\Ernar\Documents\dotnet\MySolution\Application\obj\Debug\net9.0\Applicat
 C:\Users\Ernar\Documents\dotnet\MySolution\Application\obj\Debug\net9.0\refint\Application.dll
 C:\Users\Ernar\Documents\dotnet\MySolution\Application\obj\Debug\net9.0\Application.pdb
 C:\Users\Ernar\Documents\dotnet\MySolution\Application\obj\Debug\net9.0\ref\Application.dll
+C:\Users\Ernar\Documents\dotnet\MySolution\Application\obj\Debug\net9.0\Application.sourcelink.json
+C:\Users\Ernar\Documents\dotnet\MySolution\Application\bin\Debug\net9.0\Infrastructure.dll
+C:\Users\Ernar\Documents\dotnet\MySolution\Application\bin\Debug\net9.0\Infrastructure.pdb

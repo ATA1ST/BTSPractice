@@ -1,10 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Core.Entities;
+using Core.Models;
 using Application.Services;
 using Application.Mappers;
 using Core.Dtos.Task;
+using MediatR;
+using Application.WorkTasks.Commands.CreateWorkTask;
+using Application.WorkTasks.Queries.GetWorkTaskById;
 
 namespace WebApi.Controllers
 {
@@ -13,10 +16,13 @@ namespace WebApi.Controllers
     public class TaskController : ControllerBase
     {
         private readonly TaskService _taskService;
+        private readonly IMediator _mediator;
 
-        public TaskController(TaskService taskService)
+        public TaskController(TaskService taskService, IMediator mediator)
         {
             _taskService = taskService;
+            _mediator = mediator;
+            
         }
 
         [HttpGet]
@@ -26,32 +32,18 @@ namespace WebApi.Controllers
             return Ok(tasks);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<WorkTask>> GetById(int id)
-        {
-            var task = await _taskService.GetByIdAsync(id);
-            if (task == null)
-                return NotFound();
-            return Ok(task);
-        }
-
         [HttpPost]
-        public async Task<ActionResult<WorkTask>> Create([FromBody]CreateWorkTaskDto dto)
+        public async Task<IActionResult> Create(CreateWorkTaskCommand command)
         {
-            var workTaskModel = dto.ToWorkTaskFromCreateDto();
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-            var newTask = await _taskService.CreateAsync(workTaskModel);
-            return CreatedAtAction(nameof(GetById), new { id = newTask.Id }, newTask);
+            var id = await _mediator.Send(command);
+            return Ok(id);
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult<WorkTask>> Update(int id, UpdateWorkTaskDto dto)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
         {
-            var updatedTask = await _taskService.UpdateAsync(id, dto);
-            if (updatedTask == null)
-                return NotFound();
-            return Ok(updatedTask);
+            var user = await _mediator.Send(new GetWorkTaskByIdQuery(id));
+            return user is null ? NotFound() : Ok(user);
         }
 
         [HttpDelete("{id}")]
