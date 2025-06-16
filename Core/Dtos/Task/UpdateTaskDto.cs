@@ -9,6 +9,7 @@ namespace Core.Dtos.Task
 {
     public class UpdateWorkTaskDto
     {
+        public int Id { get; set; }
         [Required]
         public int CrewId { get; set; }
 

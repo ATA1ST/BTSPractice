@@ -8,33 +8,21 @@ using MediatR;
 using Core.Models;
 using Core.Dtos.Task;
 using Application.Mappers;
+using Application.Services;
 
 namespace Application.WorkTasks.Commands.CreateWorkTask
 {
     public class CreateWorkTaskHandler : IRequestHandler<CreateWorkTaskCommand, int>
     {
-        private readonly IApplicationDBContext _context;
+        private readonly TaskService _taskService;
 
-        public CreateWorkTaskHandler(IApplicationDBContext context)
+        public CreateWorkTaskHandler(TaskService taskService)
         {
-            _context = context;
+            _taskService = taskService;
         }
         public async Task<int> Handle(CreateWorkTaskCommand request, CancellationToken cancellationToken)
         {
-            var dto = new CreateWorkTaskDto
-            {
-                CrewId = request.CrewId,
-                ShiftId = request.ShiftId,
-                Status = request.Status,
-                PlannedQuantity = request.PlannedQuantity,
-                ActualQuantity = request.ActualQuantity,
-                MaterialId = request.MaterialId,
-                UsedMaterialQuantity = request.UsedMaterialQuantity
-            };
-            var task = WorkTaskMappers.ToWorkTaskFromCreateDto(dto);
-            _context.Tasks.Add(task);
-            await _context.SaveChangesAsync(cancellationToken);
-            return task.Id;
+            return await _taskService.CreateAsync(request, cancellationToken);
         }
     }
 }

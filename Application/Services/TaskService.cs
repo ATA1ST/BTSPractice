@@ -5,14 +5,20 @@ using System.Threading.Tasks;
 using Core.Models;
 using Core.Dtos.Task;
 using Core.Interfaces;
+using Application.WorkTasks.Commands.CreateWorkTask;
+using Microsoft.EntityFrameworkCore;
+using Application.WorkTasks.Commands.UpdateWorkTask;
+using Application.WorkTasks.Commands.DeleteWorkTask;
 
 namespace Application.Services
 {
     public class TaskService
     {
         public ITaskRepository _repo;
-        public TaskService(ITaskRepository repo)
+        private readonly IApplicationDBContext _context;
+        public TaskService(ITaskRepository repo, IApplicationDBContext context)
         {
+            _context = context;
             _repo = repo;
         }
 
@@ -24,21 +30,54 @@ namespace Application.Services
         {
             return await _repo.GetByIdAsync(id);
         }
-        public async Task<WorkTask> CreateAsync(WorkTask task)
+        public async Task<int> CreateAsync(CreateWorkTaskCommand command, CancellationToken cancellationToken)
         {
-            return await _repo.CreateAsync(task);
+            var task = new WorkTask
+            {
+                CrewId = command.CrewId,
+                ShiftId = command.ShiftId,
+                Status = command.Status,
+                PlannedQuantity = command.PlannedQuantity,
+                ActualQuantity = command.ActualQuantity,
+                MaterialId = command.MaterialId,
+                UsedMaterialQuantity = command.UsedMaterialQuantity
+            };
+            _context.Tasks.Add(task);
+            await _context.SaveChangesAsync(cancellationToken);
+            return task.Id;
         }
-        public async Task<WorkTask?> UpdateAsync(int id, UpdateWorkTaskDto dto)
+        public async Task<bool> UpdateAsync(UpdateWorkTaskCommand request, CancellationToken cancellationToken)
         {
-            return await _repo.UpdateAsync(id, dto);
+            var task = await _context.Tasks.FirstOrDefaultAsync(x => x.Id == request.Id);
+            if (task == null)
+                return false;
+
+            task.CrewId = request.CrewId;
+            task.ShiftId = request.ShiftId;
+            task.Status = request.Status;
+            task.PlannedQuantity = request.PlannedQuantity;
+            task.ActualQuantity = request.ActualQuantity;
+            task.MaterialId = request.MaterialId;
+            task.UsedMaterialQuantity = request.UsedMaterialQuantity;
+
+            await _context.SaveChangesAsync(cancellationToken);
+            return true;
         }
 
-        public async Task<WorkTask?> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(DeleteWorkTaskCommand request, CancellationToken cancellationToken)
         {
-            return await _repo.DeleteAsync(id);
+            var task = await _repo.GetByIdAsync(request.Id);
+            if (task == null)
+            {
+                return false;
+            }
+
+            await _repo.DeleteAsync(task.Id);
+            return true;
         }
         
 
 
     }
+
 }

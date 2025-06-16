@@ -37,5 +37,18 @@ namespace Application.Mappers
                 UsedMaterialQuantity = workTaskDto.UsedMaterialQuantity
             };
         }
+        public static WorkTask ToWorkTaskFromUpdateDto(this UpdateWorkTaskDto workTaskDto)
+        {
+            return new WorkTask
+            {
+                CrewId = workTaskDto.CrewId,
+                ShiftId = workTaskDto.ShiftId,
+                Status = workTaskDto.Status,
+                PlannedQuantity = workTaskDto.PlannedQuantity,
+                ActualQuantity = workTaskDto.ActualQuantity,
+                MaterialId = workTaskDto.MaterialId,
+                UsedMaterialQuantity = workTaskDto.UsedMaterialQuantity
+            };
+        }
     }
 }

@@ -9,6 +9,9 @@ using MediatR;
 using Application.WorkTasks.Commands.CreateWorkTask;
 using Application.WorkTasks.Queries.GetWorkTaskById;
 
+using Application.WorkTasks.Commands.UpdateWorkTask;
+using Application.WorkTasks.Commands.DeleteWorkTask;
+
 namespace WebApi.Controllers
 {
     [ApiController]
@@ -40,19 +43,29 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var user = await _mediator.Send(new GetWorkTaskByIdQuery(id));
-            return user is null ? NotFound() : Ok(user);
+            var result = await _mediator.Send(new GetWorkTaskByIdQuery(id));
+            if (result == null)
+                return NotFound();
+            return Ok(result);
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateWorkTaskCommand command)
+        {
+            if (id != command.Id)
+                return BadRequest("ID in URL does not match ID in request body.");
+
+            var result = await _mediator.Send(command);
+            return result ? Ok() : NotFound();
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<WorkTask>> Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var deletedTask = await _taskService.DeleteAsync(id);
-            if (deletedTask == null)
-                return NotFound();
-            return Ok(deletedTask);
+            var command = new DeleteWorkTaskCommand(id); 
+            var result = await _mediator.Send(command);
+            return result ? Ok() : NotFound();
         }
     }
 }

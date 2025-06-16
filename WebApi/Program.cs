@@ -8,6 +8,8 @@ using Core.Interfaces;
 using Infrastructure.Repositories;
 using Application.Services;
 using Application.WorkTasks.Commands.CreateWorkTask;
+using Application.WorkTasks.Commands.UpdateWorkTask;
+using Application.WorkTasks.Commands.DeleteWorkTask;
 using Application.WorkTasks.Queries.GetWorkTaskById;
 using Core.Interfaces;
 
@@ -23,7 +25,13 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 builder.Services.AddMediatR(cfg =>
-    cfg.RegisterServicesFromAssembly(typeof(CreateWorkTaskCommand).Assembly));
+{
+    cfg.RegisterServicesFromAssemblies(
+        typeof(CreateWorkTaskCommand).Assembly,
+        typeof(UpdateWorkTaskCommand).Assembly,
+        typeof(DeleteWorkTaskCommand).Assembly
+    );
+});
 
 builder.Services.AddScoped<IApplicationDBContext, ApplicationDBContext>();
 
